@@ -1,0 +1,25 @@
+﻿@model salaoDaLora.Models.Profissional
+
+@{
+    ViewData["Title"] = "Editar Profissional";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="ProfissionalId" />
+    <div class="form-group">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Especialidade" class="control-label"></label>
+        <input asp-for="Especialidade" class="form-control" />
+        <span asp-validation-for="Especialidade" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>

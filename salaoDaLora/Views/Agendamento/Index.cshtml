@@ -1,0 +1,37 @@
+﻿@model IEnumerable<salaoDaLora.Models.Agendamento>
+
+@{
+    ViewData["Title"] = "Lista de Agendamentos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Criar Novo Agendamento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>Profissional</th>
+            <th>Serviço</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.DataAgendamento.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@item.Cliente.Nome</td>
+                    <td>@item.Profissional.Nome</td>
+                    <td>@item.Servico.Descricao</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.AgendamentoId" class="btn btn-info">Detalhes</a>
+                        <a asp-action="Edit" asp-route-id="@item.AgendamentoId" class="btn btn-warning">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.AgendamentoId" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

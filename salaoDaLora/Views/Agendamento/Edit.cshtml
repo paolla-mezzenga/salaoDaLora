@@ -1,0 +1,41 @@
+﻿@model salaoDaLora.Models.Agendamento
+
+@{
+    ViewData["Title"] = "Editar Agendamento";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Agendamento</h4>
+<hr />
+<form asp-action="Edit">
+    <input type="hidden" asp-for="AgendamentoId" />
+    <div class="form-group">
+        <label asp-for="DataAgendamento" class="control-label"></label>
+        <input asp-for="DataAgendamento" class="form-control" />
+        <span asp-validation-for="DataAgendamento" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClienteId" class="control-label"></label>
+        <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProfissionalId" class="control-label"></label>
+        <select asp-for="ProfissionalId" class="form-control" asp-items="ViewBag.ProfissionalId"></select>
+        <span asp-validation-for="ProfissionalId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ServicoId" class="control-label"></label>
+        <select asp-for="ServicoId" class="form-control" asp-items="ViewBag.ServicoId"></select>
+        <span asp-validation-for="ServicoId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Voltar</a>
+</div>
